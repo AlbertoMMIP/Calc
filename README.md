@@ -1,2 +1,2 @@
 # Calc
-A calculator implemented with React and programming in NVIM
+A calculator implemented with React JS and programming with NVIM
