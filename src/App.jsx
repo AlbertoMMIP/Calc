@@ -9,16 +9,16 @@ const App = () => {
   console.log('Render App')
   const [result, setResult] = useState('')
 
-  const handlerButton = (text) => {
-    console.log('Clien en button', text)
-  }
-
   return (
     <main className="react-calculator">
       <Result value={result} />
-      <Numbers handlerButton={(number) => setResult(number)} />
-      <Functions onClickClear={(text) => handlerButton(text)} onClickDelete={(text) => handlerButton(text)} />
-      <MathOperations onClickOperation={(text) => handlerButton(text) } onClickEqual={() => console.log('equals') } />
+      <Numbers handlerButton={(number) => setResult(`${result}${number}`)} />
+      <Functions onClickClear={() => setResult('')} 
+        onClickDelete={() => {
+          const newResult = result.substring(0, result.length -1);
+          setResult(newResult)
+        }} />
+      <MathOperations onClickOperation={(operation) => setResult(`${result}${operation}`) } onClickEqual={(equal) => setResult(`${result}${equal}`)} />
     </main>
   );
 }
