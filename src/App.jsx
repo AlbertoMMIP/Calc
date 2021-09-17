@@ -11,10 +11,11 @@ const App = () => {
   console.log('Render App')
   const [result, setResult] = useState('')
   const items = words(result, /[^-^+^*^/]+/g)
+  const value = items.length ? items[items.length - 1] : '0';
   console.log('items', items)
   return (
     <main className="react-calculator">
-      <Result value={items[items.length - 1]} />
+      <Result value={value} />
       <Numbers handlerButton={(number) => setResult(`${result}${number}`)} />
       <Functions onClickClear={() => setResult('')} 
         onClickDelete={() => {
