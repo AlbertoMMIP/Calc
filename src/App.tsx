@@ -14,7 +14,7 @@ const App = () => {
   return (
     <main className="react-calculator">
       <Result value={value} />
-      <Numbers handlerButton={(number) => setResult(`${result}${number}`)} />
+      <Numbers onClickNumber={(number) => setResult(`${result}${number}`)} />
       <Functions onClickClear={() => setResult('')} 
         onClickDelete={() => {
           if (result.length) {
